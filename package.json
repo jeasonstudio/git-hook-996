@@ -11,7 +11,7 @@
     "url": "git+https://github.com/jeasonstudio/git-hook-996.git"
   },
   "bin": {
-    "git-hook-996": "./index"
+    "git-hook-996": "./index.js"
   },
   "author": "Jeason",
   "license": "SEE LICENSE IN LICENSE",
