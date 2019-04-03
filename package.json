@@ -1,0 +1,22 @@
+{
+  "name": "git-hook-996",
+  "version": "1.0.0",
+  "description": "Git pre-commit hook for 996.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeasonstudio/git-hook-996.git"
+  },
+  "author": "Jeason",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/jeasonstudio/git-hook-996/issues"
+  },
+  "homepage": "https://github.com/jeasonstudio/git-hook-996#readme",
+  "dependencies": {
+    "chalk": "^2.4.2"
+  }
+}
