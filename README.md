@@ -9,7 +9,7 @@ $ cd YOUR_PROJECT_ROOT
 $ npx git-hook-996
 ```
 
-!(usage)[usage.png]
+![usage](./usage.png)
 
 ### License
 
