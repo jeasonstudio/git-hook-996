@@ -2,8 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const chalk = require('chalk');
-const warning = chalk.keyword('orange');
+const hookContent = require('./hook');
 
+const warning = chalk.keyword('orange');
+const err = chalk.red;
 const exists = fs.existsSync || path.existsSync;
 
 function getGitFolderPath(currentPath) {
@@ -30,7 +32,7 @@ if (!git) {
   return;
 }
 
-console.log(`Finded ${chalk.bold.underline('.git')} folder to install:`);
+console.log(`Found ${chalk.bold.underline('.git')} folder to install:`);
 console.log('  ', chalk.green(git));
 console.log();
 
@@ -54,7 +56,21 @@ try {
 } catch (e) {}
 
 // TODO: we donot keep launching the old pre-commit scripts
-// let hookRelativeUnixPath = hook.replace(__dirname, '.');
-// console.log(hookRelativeUnixPath);
+try {
+  fs.writeFileSync(precommit, hookContent.join(os.EOL));
+} catch (e) {
+  err('Failed to create the hook file in your .git/hooks folder because:');
+  err(e.message);
+  err('The hook was not installed.');
+}
 
-console.log('TODO:');
+try {
+  fs.chmodSync(precommit, '777');
+} catch (e) {
+  err('Chmod 0777 the pre-commit file in your .git/hooks folder because:');
+  err('pre-commit: ' + e.message);
+}
+
+console.log();
+console.log(chalk.green('996 pre-commit hook installed successfully!!'));
+console.log(chalk.green('Happy hacking!!'));
