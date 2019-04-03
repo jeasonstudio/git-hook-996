@@ -5,6 +5,7 @@ const path = require('path');
 const os = require('os');
 const chalk = require('chalk');
 const hookContent = require('./hook');
+const root = path.resolve(__dirname, '..', '..');
 
 const warning = chalk.keyword('orange');
 const err = chalk.red;
@@ -21,7 +22,7 @@ function getGitFolderPath(currentPath) {
   return git;
 }
 
-const git = getGitFolderPath(__dirname);
+const git = getGitFolderPath(root);
 
 console.log();
 if (!git) {
